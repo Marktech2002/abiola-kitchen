@@ -53,7 +53,8 @@ export const SeatingSection = () => {
       glare.className = "tilt-glare";
       card.appendChild(glare);
 
-      card.addEventListener("mousemove", (e) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      card.addEventListener("mousemove", (e: any) => {
         const rect = (card as HTMLElement).getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;

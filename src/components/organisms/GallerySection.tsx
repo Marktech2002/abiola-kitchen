@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from '@/components/ui/button';
 import { Image } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -31,14 +32,15 @@ export const GallerySection = () => {
 
   useEffect(() => {
     // Duplicate images for seamless loop
-    const setupInfiniteScroll = (sliderRef, direction, duration) => {
+    const setupInfiniteScroll = (sliderRef:any, direction:any, duration:any) => {
       if (!sliderRef.current) return;
 
       const slider = sliderRef.current;
       const images = slider.querySelectorAll('img');
       
       // Clone images for seamless loop
-      images.forEach(img => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      images.forEach((img:any) => {
         const clone = img.cloneNode(true);
         slider.appendChild(clone);
       });
@@ -72,9 +74,9 @@ export const GallerySection = () => {
     };
 
     // Setup animations with different speeds and directions
-    const anim1 = setupInfiniteScroll(slider1Ref, 'left', 40);
-    const anim2 = setupInfiniteScroll(slider2Ref, 'right', 35);
-    const anim3 = setupInfiniteScroll(slider3Ref, 'left', 40);
+    const anim1 = setupInfiniteScroll(slider1Ref, 'left', 50);
+    const anim2 = setupInfiniteScroll(slider2Ref, 'right', 45);
+    const anim3 = setupInfiniteScroll(slider3Ref, 'left', 50);
 
     // Cleanup
     return () => {

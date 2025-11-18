@@ -1,7 +1,6 @@
 import { Logo } from '@/components/atoms/Logo';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Instagram, Facebook, Clock, MapPin, Phone, Mail } from 'lucide-react';
 import { openingHours, contactInfo } from '@/data/mockData';
 
@@ -71,7 +70,7 @@ export const Footer = () => {
     scrollTriggerScript.async = true
     scrollTriggerScript.onload = () => {
       if (window.gsap) {
-        window.gsap.registerPlugin(window.ScrollTrigger)
+        // window.gsap.registerPlugin(window.ScrollTrigger)
       }
     }
 

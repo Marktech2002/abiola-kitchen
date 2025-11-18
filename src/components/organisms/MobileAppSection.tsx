@@ -75,6 +75,7 @@ export const MobileAppSection = () => {
         }, sectionRef)
 
         return () => ctx.revert()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         console.log('GSAP not available, skipping animations')
       }
