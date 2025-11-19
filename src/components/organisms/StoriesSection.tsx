@@ -30,13 +30,13 @@ export const StoriesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="px-6 md:px-18 py-6">
+    <section ref={sectionRef} className="px-6 md:px-18 py-6 md:py-12">
       <div className="flex flex-col md:flex-row gap-12 md:gap-[96px] justify-center items-center">
         
         {/* Image */}
         <div className="flex-shrink-0 fade-up">
           <img
-            src="/images/chef-collage.svg"
+            src="/images/chef-collage.png"
             alt="Chef cooking"
             className="w-full max-w-[680px] md:w-[680px] md:h-[702px] rounded-3xl"
           />
