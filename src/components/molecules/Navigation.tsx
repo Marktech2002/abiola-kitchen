@@ -147,7 +147,7 @@ export const Navigation = () => {
       {/* Mobile Navigation Bar */}
       <nav
         ref={mobileBarRef}
-        className="md:hidden fixed glassmorphic px-4 pt-3 w-full rounded-b-[32px] flex justify-between items-center"
+        className="md:hidden fixed glassmorphic mt-2 px-6 py-3 w-full rounded-[32px] flex justify-between items-center"
       >
         <img src="/images/logo.png" alt="Logo" className="h-14 w-auto" />
 

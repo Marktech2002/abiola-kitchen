@@ -109,7 +109,7 @@ export const SeatingSection = () => {
 
   return (
     //py-12 md:py-20 px-4 md:px-8
-    <section ref={sectionRef} className="py-12 md:py-20 md:px-18 px-4 flex flex-col gap-16">
+    <section ref={sectionRef} className="py-6 md:py-20 md:px-18 px-4 flex flex-col gap-16">
       {/* Heading */}
       <div className="flex flex-col gap-3">
         <h2 className="text-mobile-header md:text-heading text-foreground">Find Your Favorite Spot</h2>
@@ -119,14 +119,14 @@ export const SeatingSection = () => {
       </div>
 
       {/* CARD SCROLLER */}
-      <div className="flex flex-col lg:flex-row gap-6 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none">
+      <div className="flex flex-col lg:flex-row gap-6 md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none">
         {seatingAreas.map((area) => (
           <div key={area.id} className="shrink-0">
             {/* Inner card wrapper allows vertical overflow */}
             <div
               className="
                 seating-card tilt-card
-                w-[360px] sm:w-[360px] md:w-[416px]
+                w-auto sm:w-[360px] md:w-[416px]
                 h-[360px] md:h-[418px]
                 rounded-[12px] p-6 flex flex-col justify-end relative
                 snap-center transition-transform duration-300

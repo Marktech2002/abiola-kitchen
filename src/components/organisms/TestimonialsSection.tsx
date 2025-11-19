@@ -13,30 +13,71 @@ export const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    // Animate mobile stars
-    gsap.from(".stars-mobile", {
-      y: 10,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      delay: 0.2,
+    const ctx = gsap.context(() => {
+      // Animate section entrance
+      gsap.from(".testimonials-header", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".testimonials-header",
+          start: "top 80%",
+        }
+      })
+
+      // Animate cards on scroll
+      gsap.from(".testimonial-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".testimonials-scroll",
+          start: "top 80%",
+        }
+      })
     })
+
+    // Cleanup - properly kill all animations and ScrollTriggers
+    return () => {
+      ctx.revert()
+    }
   }, [])
 
-  const scrollLeft = () => {
+  const scrollToCard = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return
-    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" })
-  }
-
-  const scrollRight = () => {
-    if (!scrollRef.current) return
-    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" })
+    
+    const container = scrollRef.current
+    const cardWidth = container.querySelector('.testimonial-card')?.clientWidth || 0
+    const gap = 48 // gap-12 = 48px
+    const scrollAmount = cardWidth + gap
+    
+    // Get current scroll position
+    const currentScroll = container.scrollLeft
+    
+    // Calculate the card index we're currently at
+    const currentIndex = Math.round(currentScroll / scrollAmount)
+    
+    // Calculate new index
+    const newIndex = direction === 'left' 
+      ? Math.max(0, currentIndex - 1)
+      : Math.min(testimonials.length - 1, currentIndex + 1)
+    
+    // Scroll to the exact position of the card
+    const targetScroll = newIndex * scrollAmount
+    
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    })
   }
 
   return (
-    <section className="lg:py-20 lg:px-18 sm:py-16 px-5 py-12">
+    <section className="lg:py-20 lg:px-18 sm:py-16 px-5 py-8">
       {/* Header */}
-      <div className="flex flex-col gap-3 mb-12">
+      <div className="testimonials-header flex flex-col gap-3 mb-12">
         <h2 className="text-mobile-header md:text-heading text-foreground">
           What Our Guests Are Saying
         </h2>
@@ -47,15 +88,15 @@ export const TestimonialsSection = () => {
 
       {/* Horizontal Scroll */}
       <div className="relative">
-        {/* <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" /> */}
-
         <div
           ref={scrollRef}
-          className="flex gap-12 overflow-x-auto pb-8 scrollbar-hide touch-pan-x"
+          className="testimonials-scroll flex gap-12 overflow-x-auto pb-8 scrollbar-hide touch-pan-x snap-x snap-mandatory md:snap-none scroll-px-5 md:scroll-px-0"
         >
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="flex-shrink-0">
+            <div 
+              key={testimonial.id} 
+              className="testimonial-card flex-shrink-0 w-[calc(100vw-40px)] md:w-auto snap-center md:snap-align-none"
+            >
               <TestimonialCard testimonial={testimonial} />
             </div>
           ))}
@@ -65,15 +106,17 @@ export const TestimonialsSection = () => {
       {/* Arrows */}
       <div className="flex justify-end gap-4 mt-8">
         <button
-          onClick={scrollLeft}
-          className="w-12 h-12 rounded-[10px] border-2 border-foreground flex items-center cursor-pointer justify-center hover:bg-foreground hover:text-background transition-colors"
+          onClick={() => scrollToCard('left')}
+          className="w-12 h-12 rounded-[10px] border-2 border-foreground flex items-center cursor-pointer justify-center hover:bg-foreground hover:text-background transition-all duration-300 active:scale-95"
+          aria-label="Previous testimonial"
         >
           <ChevronLeft size={24} />
         </button>
 
         <button
-          onClick={scrollRight}
-          className="w-12 h-12 rounded-[10px] border-2 border-foreground flex items-center cursor-pointer justify-center hover:bg-foreground hover:text-background transition-colors"
+          onClick={() => scrollToCard('right')}
+          className="w-12 h-12 rounded-[10px] border-2 border-foreground flex items-center cursor-pointer justify-center hover:bg-foreground hover:text-background transition-all duration-300 active:scale-95"
+          aria-label="Next testimonial"
         >
           <ChevronRight size={24} />
         </button>

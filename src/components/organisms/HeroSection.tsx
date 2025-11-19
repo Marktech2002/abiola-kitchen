@@ -48,7 +48,7 @@ export const HeroSection = () => {
               <h1 className="md:text-hero text-hero-mobile text-white">
                 Authentic dining, modern experience.
               </h1>
-              <p className="md:text-subheading text-mobile-subheading text-center md:text-left text-white md:max-w-[634px] md:leading-[36px]">
+              <p className="md:text-subheading text-mobile-subheading flex justify-center text-center md:text-left text-white md:max-w-[634px] md:leading-[36px]">
                 From expertly grilled meats to fresh, seasonal veggies enjoy meals crafted with care and tradition.
               </p>
             </div>
@@ -107,7 +107,7 @@ export const HeroSection = () => {
             <h1 className="text-hero-mobile text-white">
               Authentic dining, modern experience.
             </h1>
-            <p className="text-mobile-subheading leading-4 text-center text-white">
+            <p className="text-mobile-subheading leading-4 flex justify-center text-center text-white">
               From expertly grilled meats to fresh, seasonal veggies enjoy meals crafted with care and tradition.
             </p>
           </div>
@@ -116,6 +116,13 @@ export const HeroSection = () => {
           <div className="fade-in w-full">
             <BookingForm />
           </div>
+
+             <div className="flex mr-12 items-center justify-start gap-4">
+              <StarRating rating={5} size={20} />
+              <span className="text-white text-[14px]  block font-medium">
+                4.9 (1200+ Reviews)
+              </span>
+            </div>
 
           {/* Reviews - Shows after booking form on mobile */}
           <div className="flex flex-col gap-6 fade-in items-center w-full">
@@ -144,16 +151,9 @@ export const HeroSection = () => {
                   </Avatar>
                 ))}
               </div>
-              <div className="bg-black/40 rounded-4xl ml-10 px-3 py-3 w-fit text-white font-medium text-[14px] fade-in">
+              {/* <div className="bg-black/40 rounded-4xl ml-10 px-3 py-3 w-fit text-white font-medium text-[14px] fade-in">
                 <p>View all</p>
-              </div>
-            </div>
-
-            <div className="flex mr-12 items-center justify-start gap-4">
-              <StarRating rating={5} size={20} />
-              <span className="text-white text-[14px] font-medium">
-                4.9 (1200+ Reviews)
-              </span>
+              </div> */}
             </div>
           </div>
         </div>

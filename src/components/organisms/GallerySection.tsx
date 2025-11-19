@@ -73,10 +73,9 @@ export const GallerySection = () => {
       return animation;
     };
 
-    // Setup animations with different speeds and directions
-    const anim1 = setupInfiniteScroll(slider1Ref, 'left', 50);
-    const anim2 = setupInfiniteScroll(slider2Ref, 'right', 45);
-    const anim3 = setupInfiniteScroll(slider3Ref, 'left', 50);
+    const anim1 = setupInfiniteScroll(slider1Ref, 'left', 20);   
+    const anim2 = setupInfiniteScroll(slider2Ref, 'right', 25); 
+    const anim3 = setupInfiniteScroll(slider3Ref, 'left', 20);   
 
     // Cleanup
     return () => {

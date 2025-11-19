@@ -11,8 +11,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: '2',
-    name: 'Lemon Herb Chicken',
-    description: 'Crispy salmon with garlic butter sauce, quinoa, and spinach.',
+    name: 'Lemon Chicken',
+    description: 'Crispy salmon with garlic butter sauce, quinoa.',
     price: 16.48,
     image: '/images/lemon-chicken.png',
     category: 'Main'
@@ -28,7 +28,7 @@ export const menuItems: MenuItem[] = [
   {
     id: '4',
     name: 'Vegetable Lasagna',
-    description: 'Pasta layered with ricotta, spinach, and marinara sauce.',
+    description: 'Pasta layered with ricotta, spinach, and marinara.',
     price: 16.48,
     image: '/images/vegetable-lasagna.png',
     category: 'Main'

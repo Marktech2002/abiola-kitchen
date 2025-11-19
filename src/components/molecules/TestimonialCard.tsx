@@ -30,30 +30,22 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
 
       <div className="flex flex-col justify-center gap-4 md:gap-6 md:pt-12 md:text-left md:px-0 w-full md:w-fit">
         {/* Mobile: Text first */}
+        <StarRating className='md:hidden block' rating={testimonial.rating} size={20} />
         <p className="
           md:hidden
           text-[#61656E] 
           text-[20px]
           py-2
+          max-w-full
           font-medium 
-          leading-tight
-          max-w-[317px]
-          text-left
-        ">
-          <span className="text-lg text-[#61656E] align-bottom leading-none inline-block">
-            〝
-          </span>
-
+          leading-tight">
+          <span className="text-lg text-[#61656E] align-bottom leading-none inline-block">〝</span>
           {testimonial.comment}
-
-          <span className="text-lg text-[#61656E] align-bottom ml-1 leading-none inline-block">
-            〞
-          </span>
+          <span className="text-lg text-[#61656E] align-bottom leading-none inline-block">〞</span>
         </p>
 
         {/* Mobile: Name with small image beside it and stars above */}
         <div className="md:hidden flex flex-col gap-2 animate-fade-in-up">
-
           <div className="flex flex-row items-center gap-3">
             <img
               src={testimonial.image}
@@ -61,7 +53,6 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
               className="w-11 h-11 object-cover rounded-full"
             />
             <div className=''>
-              <StarRating rating={testimonial.rating} size={20} />
               <p className="text-foreground text-[18px] font-medium">
                 {testimonial.name}
               </p>

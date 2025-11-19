@@ -15,7 +15,7 @@ export const MenuSection = () => {
     : menuItems.filter(item => item.category === activeCategory)
 
   return (
-    <section id="menu" className="py-20 px-6 md:px-18">
+    <section id="menu" className="py-8 px-6 md:px-18">
 
       {/* HEADER */}
       <div className="flex flex-col md:flex-row justify-between items-start mb-6 md:mb-12 gap-6 md:gap-0">
@@ -36,11 +36,10 @@ export const MenuSection = () => {
             className="
       bg-transparent
       flex gap-4 md:gap-12 
-      overflow-x-auto 
+      overflow-x-scroll 
       whitespace-nowrap 
       scrollbar-hide
-      px-1
-    "
+      px-1"
           >
             {categories.map((category) => (
               <TabsTrigger
@@ -50,9 +49,9 @@ export const MenuSection = () => {
           px-2       
           text-base
           md:text-2xl
-
           font-normal text-muted-foreground
           data-[state=active]:text-foreground data-[state=active]:font-medium
+          border-x-0 border-t-0
           border-b-2 border-transparent 
           data-[state=active]:border-foreground
           rounded-none pb-1 cursor-pointer
@@ -68,7 +67,7 @@ export const MenuSection = () => {
 
       {/* GRID */}
       <div
-        className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-10 mb-12"
+        className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-10 md:mb-12"
       >
         {filteredItems.map((item) => (
           <MenuCard key={item.id} item={item} />

@@ -87,11 +87,14 @@ export const Footer = () => {
     <footer ref={footerRef} className="bg-black text-white">
       <div className="px-5 sm:px-10 lg:px-20 py-12 sm:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row lg:gap-[400px] gap-12 mb-12">
+          {/* Left Section - Logo only on desktop, Logo + Links on mobile */}
           <div className="flex flex-col items-start gap-6 sm:gap-8">
             <div ref={logoRef}>
               <Logo/>
             </div>
-            <div ref={subscribeRef} className="flex flex-col gap-4 w-full">
+            
+            {/* Subscribe & Social - Desktop only */}
+            <div ref={subscribeRef} className="hidden lg:flex flex-col gap-4 w-full">
               <h3 className="text-xl sm:text-2xl font-medium">Join Our Foodie Circle</h3>
               <p className="text-white/80 max-w-full lg:max-w-[466px] text-base sm:text-xl">Subscribe for exclusive offers and seasonal specials.</p>
               <div className="flex flex-col sm:flex-row gap-2 w-full">
@@ -105,7 +108,7 @@ export const Footer = () => {
                 </Button>
               </div>
             </div>
-            <div ref={socialRef} className="flex gap-2">
+            <div ref={socialRef} className="hidden lg:flex gap-2">
               <button className="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition-all duration-300 hover:scale-110">
                 <Instagram size={18} />
               </button>
@@ -113,10 +116,24 @@ export const Footer = () => {
                 <Facebook size={17} />
               </button>
             </div>
+
+            {/* Quick Links - Mobile only */}
+            <div ref={linksRef} className="flex flex-col gap-6 lg:hidden">
+              <h4 className="text-sm font-bold uppercase tracking-wider">Quick Links</h4>
+              <nav className="flex flex-col gap-4 sm:gap-6">
+                <a href="#" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">Home</a>
+                <a href="#menu" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">Menu</a>
+                <a href="#" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">Reservations</a>
+                <a href="#about" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">About us</a>
+                <a href="#contact" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">Contact us</a>
+              </nav>
+            </div>
           </div>
 
+          {/* Right Section - Links + Hours + Contact */}
           <div className="flex flex-col sm:flex-row gap-12 sm:gap-20 lg:gap-40">
-            <div ref={linksRef} className="flex flex-col gap-6">
+            {/* Quick Links - Desktop only */}
+            <div ref={linksRef} className="hidden lg:flex flex-col gap-6">
               <h4 className="text-sm font-bold uppercase tracking-wider">Quick Links</h4>
               <nav className="flex flex-col gap-4 sm:gap-6">
                 <a href="#" className="text-white/70 text-lg sm:text-xl hover:text-white transition-all duration-300 hover:translate-x-1">Home</a>
@@ -128,6 +145,7 @@ export const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-8">
+              {/* Opening Hours */}
               <div ref={hoursRef} className="flex flex-col gap-4">
                 <h4 className="text-sm font-bold uppercase tracking-wider">Opening Hours</h4>
                 <div className="flex flex-col gap-4 sm:gap-6">
@@ -140,6 +158,7 @@ export const Footer = () => {
                 </div>
               </div>
 
+              {/* Contact us */}
               <div ref={contactRef} className="flex flex-col gap-4">
                 <h4 className="text-sm font-bold uppercase tracking-wider mt-2 sm:mt-4">Contact us</h4>
                 <div className="flex flex-col gap-4 sm:gap-6">
@@ -156,6 +175,30 @@ export const Footer = () => {
                     <span className="text-white/70 text-base sm:text-xl break-all">{contactInfo.email}</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Subscribe & Social - Mobile only (after contact) */}
+              <div ref={subscribeRef} className="flex lg:hidden flex-col gap-4 w-full">
+                <h3 className="text-xl sm:text-2xl font-medium">Join Our Foodie Circle</h3>
+                <p className="text-white/80 max-w-full lg:max-w-[466px] text-base sm:text-xl">Subscribe for exclusive offers and seasonal specials.</p>
+                <div className="flex flex-col sm:flex-row gap-2 w-full">
+                  <input
+                    type="email"
+                    placeholder="enter your email address"
+                    className="bg-transparent w-full sm:w-[330px] border-white border px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white/70 placeholder:text-white/70 text-sm sm:text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  />
+                  <Button className="bg-white text-black px-6 py-3 sm:py-2 rounded-full font-medium hover:bg-white/90 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                    Subscribe
+                  </Button>
+                </div>
+              </div>
+              <div ref={socialRef} className="flex lg:hidden gap-2">
+                <button className="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition-all duration-300 hover:scale-110">
+                  <Instagram size={18} />
+                </button>
+                <button className="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition-all duration-300 hover:scale-110">
+                  <Facebook size={17} />
+                </button>
               </div>
             </div>
           </div>
