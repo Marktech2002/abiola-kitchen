@@ -26,7 +26,7 @@ export const MenuCard = ({ item }: MenuCardProps) => {
         "
       />
 
-      <div className="mt-2 md:mt-4 flex flex-col gap-1">
+      <div className="md:mt-4 -mt-2 flex flex-col md:gap-1">
         <h3 className="text-foreground text-sm sm:text-base md:text-xl font-medium">
           {item.name}
         </h3>
@@ -35,7 +35,7 @@ export const MenuCard = ({ item }: MenuCardProps) => {
         </p>
       </div>
 
-      <div className="flex items-center justify-between mt-2 md:mt-4">
+      <div className="flex items-center justify-between -mt-2 md:mt-4">
         <span className="text-price-green text-[16px] sm:text-[18px] md:text-[28px] font-medium">
           {formatPrice(item.price)}
         </span>

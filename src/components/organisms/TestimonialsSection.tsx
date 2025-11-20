@@ -95,7 +95,7 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id} 
-              className="testimonial-card flex-shrink-0 w-[calc(100vw-40px)] md:w-auto snap-center md:snap-align-none"
+              className="testimonial-card shrink-0 w-[calc(100vw-40px)] md:w-auto snap-center md:snap-align-none"
             >
               <TestimonialCard testimonial={testimonial} />
             </div>

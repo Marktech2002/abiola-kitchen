@@ -25,9 +25,9 @@ export const Navigation = () => {
   const mobileBarRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
-   /* ======================================
-        LOCK BODY SCROLL WHEN MENU OPENS
-  ====================================== */
+  /* ======================================
+       LOCK BODY SCROLL WHEN MENU OPENS
+ ====================================== */
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto"
     return () => {
@@ -137,7 +137,7 @@ export const Navigation = () => {
             <span className="text-white font-medium text-base">EN</span>
             <Globe size={20} className="text-white" />
           </div>
-          <Button className="flex items-center gap-2 px-4 py-3 rounded-3xl bg-white text-black font-medium text-base hover:bg-white/90">
+          <Button className="flex items-center gap-2 px-3 py-2 rounded-3xl bg-white text-black font-medium text-base hover:bg-white/90">
             Book Table
             <Calendar size={20} />
           </Button>
@@ -147,9 +147,9 @@ export const Navigation = () => {
       {/* Mobile Navigation Bar */}
       <nav
         ref={mobileBarRef}
-        className="md:hidden fixed glassmorphic mt-2 px-6 py-3 w-full rounded-[32px] flex justify-between items-center"
+        className="md:hidden fixed glassmorphic mt-2 mx-3 px-6 py-3 w-[93%] rounded-[32px] flex justify-between items-center"
       >
-        <img src="/images/logo.png" alt="Logo" className="h-14 w-auto" />
+        <img src="/images/logo.png" alt="Logo" className="h-12 w-auto" />
 
         <Button
           onClick={() => setIsMenuOpen(true)}

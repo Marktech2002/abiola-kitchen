@@ -120,12 +120,12 @@ export const HeroSection = () => {
              <div className="flex mr-12 items-center justify-start gap-4">
               <StarRating rating={5} size={20} />
               <span className="text-white text-[14px]  block font-medium">
-                4.9 (1200+ Reviews)
+                4.9 (120+ Reviews)
               </span>
             </div>
 
           {/* Reviews - Shows after booking form on mobile */}
-          <div className="flex flex-col gap-6 fade-in items-center w-full">
+          <div className="flex flex-col gap-6 fade-in items-start w-full">
             <div className="relative bg-black/40 rounded-lg p-4 w-full">
               <div
                 className="absolute -bottom-4 left-4 w-6 h-5 bg-black/40"
@@ -137,7 +137,7 @@ export const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="flex justify-end flex-wrap gap-4">
               <Avatar key={6} className="w-10 h-10 fade-in">
                 <img src={`https://i.pravatar.cc/40?u=customer6`} alt={`Customer 6`} />
               </Avatar>

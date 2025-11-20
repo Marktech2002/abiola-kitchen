@@ -30,12 +30,13 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
 
       <div className="flex flex-col justify-center gap-4 md:gap-6 md:pt-12 md:text-left md:px-0 w-full md:w-fit">
         {/* Mobile: Text first */}
-        <StarRating className='md:hidden block' rating={testimonial.rating} size={20} />
+        <StarRating className='md:hidden flex justify-center' rating={testimonial.rating} size={20} />
         <p className="
           md:hidden
           text-[#61656E] 
           text-[20px]
           py-2
+          text-center
           max-w-full
           font-medium 
           leading-tight">
@@ -45,8 +46,8 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
         </p>
 
         {/* Mobile: Name with small image beside it and stars above */}
-        <div className="md:hidden flex flex-col gap-2 animate-fade-in-up">
-          <div className="flex flex-row items-center gap-3">
+        <div className="md:hidden flex flex-col gap-2 justify-center animate-fade-in-up">
+          <div className="flex flex-row justify-center items-center gap-3">
             <img
               src={testimonial.image}
               alt={testimonial.name}
